@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="adapter"
+            type="com.srp.carwash.ui.main.wallpaper.WallpaperCatAdapter"/>
+        <variable
+            name="item"
+            type="com.srp.carwash.data.model.api.WallpaperCategory"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:onClick="@{() -> adapter.onItemClick(item.id, item.title)}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.androidnetworking.widget.ANImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:elevation="@dimen/_2sdp"
+                android:background="@drawable/bottom_left_corners_curve_bg"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textStyle="bold"
+                android:text="@{item.title}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:textSize="@dimen/_9ssp"
+                android:textColor="@color/gray"
+                android:text="@{item.description}"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

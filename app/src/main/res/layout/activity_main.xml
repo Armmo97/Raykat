@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.srp.carwash.ui.main.MainViewModel"/>
+
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainActivity">
+
+        <!-- Action Bar -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:visibility="@{viewModel.isActionBarVisible ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/_14ssp"
+                tools:text="@{viewModel.pageTitle}"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frag_container_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Bottom Bar-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:elevation="@dimen/_2sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/white"
+            android:weightSum="5"
+            android:visibility="@{viewModel.isBottomBarVisible ? View.VISIBLE : View.GONE}">
+
+            <!-- first icon -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:tint="@color/light_gray"
+                    android:padding="@dimen/_7sdp"
+                    app:srcCompat="@drawable/ic_android"
+                    android:scaleX="@{viewModel.selectedPage == 1 ? 1.2f : 1.0f}"/>
+
+                <View
+                    android:visibility="@{viewModel.selectedPage == 1 ? View.VISIBLE : View.GONE}"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bot_nav_indicator_bg"/>
+
+            </LinearLayout>
+
+            <!-- second icon -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:tint="@color/light_gray"
+                    android:padding="@dimen/_7sdp"
+                    app:srcCompat="@drawable/ic_android"
+                    android:scaleX="@{viewModel.selectedPage == 2 ? 1.2f : 1.0f}" />
+
+                <View
+                    android:visibility="@{viewModel.selectedPage == 2 ? View.VISIBLE : View.GONE}"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bot_nav_indicator_bg"/>
+
+            </LinearLayout>
+
+            <!-- third icon -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:tint="@color/light_gray"
+                    android:padding="@dimen/_7sdp"
+                    app:srcCompat="@drawable/ic_android"
+                    android:scaleX="@{viewModel.selectedPage == 3 ? 1.2f : 1.0f}"/>
+
+                <View
+                    android:visibility="@{viewModel.selectedPage == 3 ? View.VISIBLE : View.GONE}"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bot_nav_indicator_bg"/>
+
+            </LinearLayout>
+
+            <!-- forth icon -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:tint="@color/light_gray"
+                    android:padding="@dimen/_7sdp"
+                    app:srcCompat="@drawable/ic_android"
+                    android:scaleX="@{viewModel.selectedPage == 4 ? 1.2f : 1.0f}" />
+
+                <View
+                    android:visibility="@{viewModel.selectedPage == 4 ? View.VISIBLE : View.GONE}"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bot_nav_indicator_bg"/>
+
+            </LinearLayout>
+
+            <!-- fifth icon -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:onClick="@{() -> viewModel.onWallpaperIconClick()}"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/_2sdp"
+                    android:tint="@color/light_gray"
+                    app:srcCompat="@drawable/ic_wallpaper"
+                    android:scaleX="@{viewModel.selectedPage == 5 ? 1.2f : 1.0f}"/>
+
+                <View
+                    android:visibility="@{viewModel.selectedPage == 5 ? View.VISIBLE : View.GONE}"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bot_nav_indicator_bg"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
